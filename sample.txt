@@ -1,5 +1,5 @@
-Acesta este primul meu fisier.
+git checkout -q branch 
+git checkout -b new_branch
 
-
-Ceva de scris. 
-sss
+git push origin branch
+git commit -m "message"
