@@ -1,5 +1,0 @@
-git checkout -q branch 
-git checkout -b new_branch
-
-git push origin branch
-git commit -m "message"
