@@ -15,5 +15,20 @@
   text-align: center;
 }
 .home-ul {
-  width: 513px;
+  width: 600px;
 }
+
+.goal {
+    width: 600px;
+}
+
+p {
+    color: green;
+}
+
+h2{
+    align-self: center;
+    color: red;
+}
+
+

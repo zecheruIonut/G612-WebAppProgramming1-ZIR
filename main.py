@@ -76,7 +76,7 @@ def user_data():
         global current_user
         conn = create_connection(database)
         data = get_user_data(conn, current_user)
-        return data.json, 204
+        return data, 204
     except Exception as e:
         error = {
             'error': f"Failed to get user data. Message:  {e}"
@@ -87,16 +87,17 @@ def user_data():
 
 @app.route('/api/delete', methods=["POST"])
 def delete():
-    body = request.json
+    print(current_user)
     conn = create_connection(database)
-    user_name = body.get('user_name', None)
     try:
-        delete_user(conn, user_name)
+        delete_user(conn, current_user)
+        return '', 201
     except Exception as e:
         error = {
             "error": f"--Failed to delete user. Message: {e}"
         }
         return error, 400
+    conn.close()
     return '', 200
 
 

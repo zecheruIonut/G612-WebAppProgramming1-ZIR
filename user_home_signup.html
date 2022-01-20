@@ -45,8 +45,9 @@
             document.write(localStorage.user_email);
           </script>
         </div>
-        <span>User data</span>
+        <p>User data</p>
         <ul class="home-ul list">
+
           <div>
             <li class="list-item" >
               <span>Name: </span>
@@ -54,6 +55,8 @@
             document.write(localStorage.user_name)
             </script></li>
           </div>
+
+
           <div>
             <li class="list-item" >
               <span>Age: </span>
@@ -61,6 +64,8 @@
             document.write(localStorage.user_age)
             </script></li>
           </div>
+
+
           <div>
             <li class="list-item" >
               <span>Gender: </span>
@@ -68,6 +73,8 @@
             document.write(localStorage.user_gender)
             </script></li>
           </div>
+
+
           <div>
             <li class="list-item" >
               <span>Activity level: </span>
@@ -76,7 +83,53 @@
             </script></li>
           </div>
 
+          <div>
+            <li class="list-item" >
+              <span>Height: </span>
+            <script type="text/javascript">
+            document.write(localStorage.user_height)
+            </script></li>
+          </div>
+
         </ul>
+        <h2>It is never a good idea to go overboard with surplus or deficit in calories.</h2>
+        <div>
+
+          <ul class="goal list">
+
+          <div>
+            <li class="list-item" >
+              <span>Maintenance calories: </span>
+            <script type="text/javascript">
+            document.write(localStorage.tee)
+            </script></li>
+          </div>
+
+
+          <div>
+            <li class="list-item" >
+              <span>Bulking calories: </span>
+            <script type="text/javascript">
+            document.write(localStorage.bulk_cal)
+            </script></li>
+          </div>
+
+
+          <div>
+            <li class="list-item" >
+              <span>Deficit calories: </span>
+            <script type="text/javascript">
+            document.write(localStorage.deficit_cal)
+            </script></li>
+          </div>
+        </ul>
+        </div>
+
+        <div>
+          <p>Here you can choose to delete all data related to your account!</p>
+          <a onclick="if (confirm('Are you sure you want to delete all data related to your account?')){return deleteUser();}else{event.stopPropagation(); event.preventDefault();};" title="Delete button">Delete user!</a>
+        </div>
+
       </div>
     </div>
   </body>

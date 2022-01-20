@@ -9,6 +9,13 @@ function success(response) {
 }
 
 function onSuccess(response) {
+    localStorage.setItem("user_email",document.getElementsByName("user_email")[0].value)
+    localStorage.setItem("user_name",document.getElementsByName("user_name")[0].value);
+    localStorage.setItem("user_age",document.getElementsByName("user_age")[0].value);
+    localStorage.setItem("user_gender",document.getElementsByName("user_gender")[0].value);
+    localStorage.setItem("user_weight",document.getElementsByName("user_weight")[0].value);
+    localStorage.setItem("user_activity_level",document.getElementsByName("user_activity_level")[0].value);
+    localStorage.setItem("user_height",document.getElementsByName("user_height")[0].value);
     window.location.href = homePageUrl;
 }
 
@@ -60,10 +67,5 @@ function signup() {
         .then(success)
         .then(onSuccess, onFailure)
         .catch(error);
-    localStorage.setItem("user_email",document.getElementsByName("user_email")[0].value)
-    localStorage.setItem("user_name",document.getElementsByName("user_name")[0].value);
-    localStorage.setItem("user_age",document.getElementsByName("user_age")[0].value);
-    localStorage.setItem("user_gender",document.getElementsByName("user_gender")[0].value);
-    localStorage.setItem("user_weight",document.getElementsByName("user_weight")[0].value);
-    localStorage.setItem("user_activity_level",document.getElementsByName("user_activity_level")[0].value);
+
 }

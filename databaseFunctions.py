@@ -16,22 +16,21 @@ def create_cursor(conn):
 # insert one user
 def create_user(conn, user_data):
     query = """insert into user_data (user_name, user_email, user_password, user_age,
-            user_gender, user_phone_number, user_weight, user_activity_level)
-    values ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}');""".format(user_data.get('user_name'), user_data.get('user_email'), user_data.get('user_password'), user_data.get('user_age'), user_data.get('user_gender'), user_data.get('user_phone_number'),user_data.get('user_weight'),user_data.get('user_activity_level'))
+            user_gender, user_phone_number, user_weight, user_activity_level, user_height)
+    values ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}');""".format(user_data.get('user_name'), user_data.get('user_email'), user_data.get('user_password'), user_data.get('user_age'), user_data.get('user_gender'), user_data.get('user_phone_number'),user_data.get('user_weight'),user_data.get('user_activity_level'), user_data.get('user_height'))
     cursor = conn.cursor()
     cursor.execute(query, user_data)
     conn.commit()
 
 
-# delete
-def delete_user(conn, user_name=None):
+# delete user
+def delete_user(conn, user_email=None):
     query = ""
-    if user_name is not None:
-        query = f"delete from user_data where user_name = '{user_name}'"
+    if user_email is not None:
+        query = f"delete from user_data where user_email = '{user_email}'"
     cursor = conn.cursor()
     cursor.execute(query)
     conn.commit()
-
 
 
 def get_user_password(conn, email):
