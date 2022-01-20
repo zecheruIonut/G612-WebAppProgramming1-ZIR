@@ -43,10 +43,8 @@ def get_user_password(conn, email):
 
 
 def get_user_data(conn, current_user):
-    # voiam sa afisez datele in html si momentan signup le baga in local storage
-    # si le folosesc de acolo, problema e la sign in
     cursor = conn.cursor()
-    query = f"SELECT user_name, user_age, user_gender, user_weight, user_activity_level FROM user_data WHERE user_email = '{current_user}'"
+    query = f"SELECT user_name, user_age, user_gender, user_weight, user_activity_level, user_height FROM user_data WHERE user_email = '{current_user}'"
     cursor.execute(query)
     result = list(cursor.fetchone())
     return result

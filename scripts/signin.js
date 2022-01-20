@@ -1,4 +1,4 @@
-const endpoint = "http://localhost:3013/api/sign-in"
+const endpoint = "http://localhost:3013/sign-in"
 const homePageUrl = './user_home_signin.html'
 
 function success(response) {
@@ -34,13 +34,11 @@ function error(response) {
 }
 
 function signin() {
-    // preluam informatiile din formular 
     const payload = {
         "user_email": document.getElementsByName("user_email")[0].value,
         "user_password": document.getElementsByName("user_password")[0].value
     }
 
-    // initializam parametrii pt un request POST 
     const params = {
         body: JSON.stringify(payload),
         method: "POST",
@@ -50,7 +48,6 @@ function signin() {
         }
     };
 
-    // efectual requestul 
     fetch(endpoint, params)
         .then(success)
         .then(onSuccess, onFailure)

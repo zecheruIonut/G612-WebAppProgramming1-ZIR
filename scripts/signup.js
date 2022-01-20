@@ -1,4 +1,4 @@
-const endpoint = "http://localhost:3013/api/sign-up"
+const endpoint = "http://localhost:3013/sign-up"
 const homePageUrl = './user_home_signup.html'
 
 function success(response) {

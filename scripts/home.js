@@ -1,7 +1,10 @@
 // show data is used for the sign in side but it does not work
 // or i am unable to find a way to make it work as intended
-function showData() {
-    endpoint = "http://localhost:3013/api/sign-in/user-data"
+function getUserData() {
+    endpoint = "http://localhost:3013/user-data"
+    const payload = {
+        "user_email": localStorage.user_email
+    }
     params = {
         method: "GET",
         mode: "cors",
@@ -29,11 +32,11 @@ function onSuccess(response){
 }
 
 function onFailure(response){
-
+    console.log(response);
 }
 
 function error(response){
-
+    console.log(response);
 }
 
 function displaySuccessResponse(response){
@@ -68,8 +71,8 @@ function calories(){
 }
 
 function deleteUser(){
-    endpoint = "http://localhost:3013/api/delete"
-    payload = { "user_name" : localStorage.user_name
+    endpoint = "http://localhost:3013/delete"
+    const payload = { "user_name" : localStorage.user_name
     }
     params = {
         body: JSON.stringify(payload),
