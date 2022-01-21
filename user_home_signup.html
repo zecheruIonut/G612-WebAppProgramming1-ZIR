@@ -38,8 +38,13 @@
     <div>
       <link href="./css/home.css" rel="stylesheet" />
       <div class="home-container">
+        <form>
+          <input type="button" value="Go back to sign up!" onclick="history.back(); window.localStorage.clear();">
+        </form>
         <h1 class="home-text">Home page</h1>
         <div>
+
+
           <span class="home-text1">Current user - </span>
           <script type="text/javascript">
             document.write(localStorage.user_email);

@@ -96,6 +96,7 @@ def user_data():
 @app.route('/delete', methods=["POST"])
 def delete():
     conn = create_connection(database)
+    global current_user
     if current_user is None:
         error = {
             "error": f"--User does not exist."

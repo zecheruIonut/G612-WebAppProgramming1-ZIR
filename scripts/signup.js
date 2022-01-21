@@ -1,6 +1,7 @@
 const endpoint = "http://localhost:3013/sign-up"
 const homePageUrl = './user_home_signup.html'
 
+
 function success(response) {
     if (!response.ok) {
         throw response;
@@ -40,7 +41,6 @@ function error(response) {
 }
 
 function signup() {
-    // preluam informatiile din formular
     const payload = {
         "user_name": document.getElementsByName("user_name")[0].value,
         "user_email": document.getElementsByName("user_email")[0].value,
@@ -49,10 +49,10 @@ function signup() {
         "user_gender": document.getElementsByName("user_gender")[0].value,
         "user_phone_number": document.getElementsByName("user_phone_number")[0].value,
         "user_weight": document.getElementsByName("user_weight")[0].value,
-        "user_activity_level": document.getElementsByName("user_activity_level")[0].value
+        "user_activity_level": document.getElementsByName("user_activity_level")[0].value,
+        "user_height": document.getElementsByName("user_height")[0].value
     }
 
-    // initializam parametrii pt un request POST
     const params = {
         body: JSON.stringify(payload),
         method: "POST",
@@ -62,10 +62,12 @@ function signup() {
         }
     };
 
-    // efectual requestul
     fetch(endpoint, params)
         .then(success)
         .then(onSuccess, onFailure)
         .catch(error);
 
 }
+
+
+

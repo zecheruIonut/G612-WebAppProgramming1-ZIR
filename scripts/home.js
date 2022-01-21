@@ -1,5 +1,7 @@
-// show data is used for the sign in side but it does not work
-// or i am unable to find a way to make it work as intended
+// atm it enters in an infinite loop so it's not working
+// properly atm
+//document.location.reload();
+
 function getUserData() {
     endpoint = "http://localhost:3013/user-data"
     const payload = {
@@ -17,14 +19,15 @@ function getUserData() {
         .then(onSuccess, onFailure)
         .catch(error);
 }
-
-
 function success(response){
     if(!response.ok)
     {
         throw response;
     }
     return response;
+}
+function onSuccessDel(){
+
 }
 
 function onSuccess(response){
@@ -89,8 +92,16 @@ function deleteUser(){
     }
     fetch(endpoint, params)
         .then(success)
-        .then(onSuccess, onFailure)
+        .then(onSuccessDel, onFailure)
         .catch(error);
 }
 
-var auto_exec = calories();
+try{
+    // for the moment it is better imo to let this autoexecute rather than
+    // creating another script file just for the sign in -> home page transition
+    getUserData();
+    calories();
+}catch(error){
+    calories();
+    console.log(error);
+}
