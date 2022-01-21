@@ -74,28 +74,22 @@ def sign_in():
 def user_data():
     try:
         global current_user
-        response = {
-            "user": []
-        }
         conn = create_connection(database)
-        data = get_user_data(conn, current_user)
-        print(data)
-        for row in data:
-            element = {
-                "user_name": row[1],
-                "user_age": row[2],
-                "user_gender": row[3],
-                "user_weight": row[4],
-                "user_activity_level": row[5],
-                "user_height": row[6]
+        profile = get_user_data(conn, current_user)
+        conn.close()
+        if not profile:
+            error = {
+                "error": f"--Failed to get user data. User {current_user} does not exist."
             }
-        response["user"].append(element)
-        return response, 200
+            return error, 404
+
+        return profile, 200
+
     except Exception as e:
         error = {
             'error': f"Failed to get user data. Message:  {e}"
         }
-        conn.close()
+
         return error, 500
 
 
@@ -106,10 +100,11 @@ def delete():
         error = {
             "error": f"--User does not exist."
         }
-        conn.close()
+
         return error, 404
     try:
         delete_user(conn, current_user)
+        conn.close()
         return '', 201
     except Exception as e:
         error = {

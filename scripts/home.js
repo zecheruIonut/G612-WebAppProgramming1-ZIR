@@ -28,7 +28,7 @@ function success(response){
 }
 
 function onSuccess(response){
-    return response.json().then(displaySuccessResponse);
+    return response.json().then(initializeLocal);
 }
 
 function onFailure(response){
@@ -39,8 +39,13 @@ function error(response){
     console.log(response);
 }
 
-function displaySuccessResponse(response){
-    console.log(displaySuccessResponse);
+function initializeLocal(response){
+    localStorage.setItem("user_name",response.user_name);
+    localStorage.setItem("user_age",response.user_age);
+    localStorage.setItem("user_gender",response.user_gender);
+    localStorage.setItem("user_weight",response.user_weight);
+    localStorage.setItem("user_activity_level",response.user_activity_level);
+    localStorage.setItem("user_height",response.user_height);
 }
 
 

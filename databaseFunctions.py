@@ -43,9 +43,22 @@ def get_user_password(conn, email):
 
 
 def get_user_data(conn, current_user):
-    cursor = conn.cursor()
     query = f"SELECT user_name, user_age, user_gender, user_weight, user_activity_level, user_height FROM user_data WHERE user_email = '{current_user}'"
+    cursor = conn.cursor()
     cursor.execute(query)
-    result = list(cursor.fetchone())
-    return result
+    user_details = list(cursor.fetchone())
+
+    if(len(user_details)) == 0:
+        return {}
+
+    profile = {
+        "user_name": user_details[0],
+        "user_age": user_details[1],
+        "user_gender": user_details[2],
+        "user_weight": user_details[3],
+        "user_activity_level": user_details[4],
+        "user_height": user_details[5]
+    }
+
+    return profile
 
